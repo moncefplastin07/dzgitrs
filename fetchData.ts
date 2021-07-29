@@ -12,7 +12,7 @@ export async function  fetchData(url: string) {
     ) || [];
 
     const header = {
-        lastUpdate: document.querySelector("section p code")?.textContent || new Date(),
+        lastUpdate: document.querySelector("section p code")?.textContent || null,
         country: document.querySelector('.wrapper section h1')?.textContent.split('in').at(-1)?.trim(),
         by: {
           name: "Moncef Gaha",
