@@ -13,6 +13,7 @@ export async function  fetchData(url: string) {
 
     const header = {
         lastUpdate: document.querySelector("code")?.textContent,
+        country: document.querySelector('.wrapper section h1')?.textContent.split('in').at(-1)?.trim(),
         by: {
           name: "Moncef Gaha",
           email: "x@moncefgaha.me",
