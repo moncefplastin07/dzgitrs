@@ -15,13 +15,15 @@ for await (const req of s) {
     });
   }
   else if(req.url !== '/favicon.ico'){
-    const usersList = await fetchData(`https://commits.top${req.url}.html`)
+    const israelNotFoundResponse = {ok:false, status: 404, statusText: 'A country that encourages terrorism'} 
+    const response = !req.url.startsWith('/israel') ? await fetchData(`https://commits.top${req.url}.html`) : israelNotFoundResponse
     req.respond({
-      body: `${JSON.stringify(usersList)}`,
+      body: `${JSON.stringify(response)}`,
       headers: new Headers({
         "Content-Type": "application/json",
       }),
     });
   }
+  
   
 }

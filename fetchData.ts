@@ -1,6 +1,10 @@
 import { DOMParser } from "./deps.ts";
 export async function  fetchData(url: string) {
   const response = await fetch(url);
+  const {ok, status} = response;
+  if (!ok) {
+    return {ok, status}
+  }
   const document = new DOMParser().parseFromString(
     await response.text(),
     "text/html",
@@ -36,5 +40,5 @@ export async function  fetchData(url: string) {
         userColmun.children[3]?.querySelector("img")?.attributes["data-src"],
     };
   }));
-  return { header, users: usersList };
+  return {ok, status, data:{ header, users: usersList }};
 }
