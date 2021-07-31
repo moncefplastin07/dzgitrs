@@ -22,6 +22,7 @@ for await (const req of s) {
       headers: new Headers({
         "Content-Type": "application/json",
       }),
+      status: response.status
     });
   }
   
