@@ -11,6 +11,7 @@ for await (const req of s) {
       body: `${JSON.stringify(await getCountries())}`,
       headers: new Headers({
         "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*"
       }),
     });
   }
@@ -21,6 +22,7 @@ for await (const req of s) {
       body: `${JSON.stringify(response)}`,
       headers: new Headers({
         "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*"
       }),
       status: response.status
     });
