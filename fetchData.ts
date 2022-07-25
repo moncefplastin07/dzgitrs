@@ -18,6 +18,7 @@ export async function  fetchData(url: string) {
     const header = {
         lastUpdate: document.querySelector("section p code")?.textContent || null,
         country: document.querySelector('.wrapper section h1')?.textContent.split(' in ').at(-1)?.trim(),
+        countrySlug: url.split('/').at(-1)?.trim().split(".")[0],
         totalUsersNumber: Number(document.querySelector('.wrapper section b')?.textContent),
         by: {
           name: "Moncef Gaha",
